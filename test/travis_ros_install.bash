@@ -18,5 +18,5 @@ mkdir -p ~/ros_test/src
 cd ~/ros_test/src
 source /opt/ros/indigo/setup.bash
 catkin_init_workspace
-cd ~/catkin_ws
+cd ~/ros_test
 catkin_make
