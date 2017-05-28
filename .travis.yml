@@ -1,0 +1,9 @@
+sudo: required
+dist: trusty
+
+script:
+  - bash -xve ./test/travis_ros_install.bash
+  - source ~/ros_test/devel/setup.bash
+  - bash -xve ./test/travis_package_make.bash
+  - source ~/ros_test/devel/setup.bash
+  - rostest rumba_ros test.launch
