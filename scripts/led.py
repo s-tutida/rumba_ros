@@ -17,7 +17,7 @@ def write_light(hz=0):
 	try:
 		with open(gpiofile,"w") as f:
 			f.write(str(hz) + "\n" )
-			rospy.loginfo(data.data)
+			rospy.loginfo(str(hz))
 	except IOError:
 		rospy.logerr("cant't write to" + gpiofile)
 
