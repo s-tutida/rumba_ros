@@ -6,4 +6,5 @@ script:
   - source ~/ros_test/devel/setup.bash
   - bash -xve ./test/travis_package_make.bash
   - source ~/ros_test/devel/setup.bash
+  - bash -xve ./test/travis_prepare_dummy_file.bash
   - rostest rumba_ros test.launch
