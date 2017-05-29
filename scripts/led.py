@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import rospy
 from std_msgs.msg import UInt16
-import RPi.GPIO as GPIO
-import time
+#import RPi.GPIO as GPIO
+#import time
 
 def write_light(hz=0):
 #def write_light(mode=1):
