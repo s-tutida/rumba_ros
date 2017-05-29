@@ -16,7 +16,7 @@ class ledTest(unittest.TestCase):
 			time.sleep(0.1)
 		with open("/dev/rtbuzzer0","r") as f:
 			data = f.readline()
-			self.assertEqual(data,"1235\n","value does not written to rtbuzzer0")
+			self.assertEqual(data,"1234\n","value does not written to rtbuzzer0")
 
 
 if __name__ == '__main__':
