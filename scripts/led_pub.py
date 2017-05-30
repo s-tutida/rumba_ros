@@ -15,8 +15,8 @@ def get_freq():
 
 
 if __name__ == '__main__':
-#	devfile = '/dev/rtlightsensor0'
-	devfile = '/dev/test.txt'
+	devfile = '/dev/rtlightsensor0'
+#	devfile = '/dev/test.txt'
 	rospy.init_node('led_pub_node')
 	pub = rospy.Publisher('led_pub_node',GpioValue,queue_size = 1)
 
