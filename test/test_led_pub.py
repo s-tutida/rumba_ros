@@ -7,7 +7,7 @@ from rumba_ros.msg import GpioValue
 class ledTest(unittest.TestCase):
 	def setUp(self):
 		self.conf = 0
-		rospy.Subscriber('/led_node_pub',GpioValue,self.callback)
+		rospy.Subscriber('/led_pub_node',GpioValue,self.callback)
 
 	def callback(self,data):
 		self.count += 1
@@ -24,20 +24,20 @@ class ledTest(unittest.TestCase):
 	
 	def test_node_exist(self):
 		nodes = rosnode.get_node_names()
-		self.assertIn('/led_node_pub',nodes,"node doesnt exist")
+		self.assertIn('/led_pub_node',nodes,"node doesnt exist")
 	
 	def test_get_value(self):
-		rospy.set_param('led_node_freq',10)
+		rospy.set_param('led_pub_freq',10)
 		time.sleep(2)
 		with open("/dev/rtlightsensor0","w") as f:
 			f.write("-1 0 123 4321\n")
 
 		time.sleep(3)
 		self.assertFalse(self.count == 0,"cannot subscribe the topic")
-		self.check_values(4321,123,0,1)
+		self.check_values(4321,123,0,-1)
 	
 	def test_change_paramater(self):
-		rospy.set_param('led_node_freq',1)
+		rospy.set_param('led_pub_freq',1)
 		time.sleep(2)
 		c_prev = self.count
 		time.sleep(3)
