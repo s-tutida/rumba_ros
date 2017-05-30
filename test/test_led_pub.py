@@ -42,7 +42,7 @@ class ledTest(unittest.TestCase):
 		c_prev = self.count
 		time.sleep(3)
 
-		self.assertTrue(self.count < c_prev + 4,"freq does not change")i
+		self.assertTrue(self.count < c_prev + 4,"freq does not change")
 		self.assertFalse(self.count == c_prev,"Subscriber is stopped")
 
 if __name__ == '__main__':
