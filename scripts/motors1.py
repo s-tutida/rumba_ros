@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #encoding: utf8
 import sys, rospy, math
-from rumba_ros.msg import GpioValue
+from rumba_ros.msg import MotorFreqs
 from geometry_msgs.msg import Twist
 
 class Motor():
@@ -9,7 +9,7 @@ class Motor():
         if not self.set_power(True): sys.exit(1)
 
         rospy.on_shutdown(self.set_power)
-        self.sub_raw = rospy.Subscriber('motor_raw', GpioValue, self.callback_raw_freq)
+        self.sub_raw = rospy.Subscriber('motor_raw', MotorFeqs, self.callback_raw_freq)
         self.sub_cmd_vel = rospy.Subscriber('cmd_vel', Twist, self.callback_cmd_vel)
 
         self.last_time = rospy.Time.now()
