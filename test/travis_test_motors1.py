@@ -3,7 +3,7 @@
 import unittest, rostest
 import rosnode, rospy
 import time
-from pimouse_ros.msg import MotorFreqs
+from rumba_ros.msg import GpioValue
 from geometry_msgs.msg import Twist
 
 class MotorTest(unittest.TestCase):
@@ -16,8 +16,8 @@ class MotorTest(unittest.TestCase):
         self.assertIn('/motors', nodes, "node does not exist")
 
     def test_put_freq(self):
-        pub = rospy.Publisher('/motor_raw', MotorFreqs)
-        m = MotorFreqs()
+        pub = rospy.Publisher('/motor_raw', GpioValue)
+        m = GpioValue()
         m.left_hz = 123 
         m.right_hz = 456 
         for i in range(10):
