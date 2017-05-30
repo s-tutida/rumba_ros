@@ -1,7 +1,7 @@
 <launch>
 	<node pkg="rumba_ros" name="led_node" type="led.py" required="true" />
 	<node pkg="rumba_ros" name="led_pub_node" type="led_pub.py" required="true" />
-	<node pkd="rumba_ros" name="motor" type="motors1.py" required="true" />
+	<node pkg="rumba_ros" name="motor" type="motors1.py" required="true" />
 	<test test-name="test_led" pkg = "rumba_ros" type="test_led.py" />
 	<test test-name="test_led_pub" pkg = "rumba_ros" type="test_led_pub.py" />
 	<test test-name="test_motor" pkg = "rumba_ros" type ="travis_test_motors1.py" time-limit = "60.0" />
