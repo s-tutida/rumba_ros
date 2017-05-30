@@ -1,4 +1,6 @@
 <launch>
 	<node pkg="rumba_ros" name="led_node" type="led.py" required="true" />
+	<node pkg="rumba_ros" name="led_pub_node" type="led_pub.py" required="true" />
 	<test test-name="test_led" pkg = "rumba_ros" type="test_led.py" />
+	<test test-name="test_led_node" pkg = "rumba_ros" type="test_led_pub.py" />
 </launch>
