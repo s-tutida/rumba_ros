@@ -6,8 +6,9 @@ from rumba_ros.msg import GpioValue
 
 class ledTest(unittest.TestCase):
 	def setUp(self):
-		self.conf = 0
+		self.count = 0
 		rospy.Subscriber('/led_pub_node',GpioValue,self.callback)
+		self.values = GpioValue()
 
 	def callback(self,data):
 		self.count += 1
