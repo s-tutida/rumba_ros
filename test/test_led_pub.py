@@ -11,8 +11,8 @@ class ledTest(unittest.TestCase):
 
 	def callback(self,data):
 		self.count += 1
-		self.value = data
-
+		self.values = data
+i
 	def check_values(self,lf,ls,rf):
 		vs = self.values
 		self.assertEqual(vs.left_forward, lf , "different value: left_forward")
