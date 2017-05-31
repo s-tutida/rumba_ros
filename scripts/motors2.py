@@ -3,14 +3,18 @@
 import sys, rospy, math
 from rumba_ros.msg import MotorFreqs
 from geometry_msgs.msg import Twist
+from std_srvs.srv import Trigger ,TriggerResponse
 
 class Motor():
     def __init__(self):
-        if not self.set_power(True): sys.exit(1)
+        if not self.set_power(False): sys.exit(1)
 
         rospy.on_shutdown(self.set_power)#when script stop,call option method.
         self.sub_raw = rospy.Subscriber('motor_raw', MotorFreqs, self.callback_raw_freq)
         self.sub_cmd_vel = rospy.Subscriber('cmd_vel', Twist, self.callback_cmd_vel)
+	self.srv_on = rospy.Service('motor_on',Trigger,self.callback_on)
+	self.srv_off = rospy.Service('motor_off',Trigger,callback_off)
+
 
         self.last_time = rospy.Time.now()
         self.using_cmd_vel = False
@@ -50,6 +54,18 @@ class Motor():
 
         self.using_cmd_vel = True
         self.last_time = rospy.Time.now()
+
+    def onoff_responsr(self,onoff):
+	d=TriggerResponse()
+	d.success=self.set_power(onoff)
+	d.message="ON" if self.is_on else "OFF"
+	return d
+
+    def callback_on(self,message):
+	return self.onoff_response(True)
+ 
+    def callback_off(self,message):
+	return self.onoff_response(False)
 
 if __name__ == '__main__':
     rospy.init_node('motors')
