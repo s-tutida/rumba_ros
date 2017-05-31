@@ -7,7 +7,7 @@ import actionlib
 from rumba_ros.msg import MusicAction,MusicResult,MusicFeedback,MusicGoal
 
 class ledTest(unittest.TestCase):
-	def setup(self):
+	def setUp(self):
 		self.client = actionlib.SimpleActionClient("music",MusicAction)
 		self.device_values = []
 
