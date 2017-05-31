@@ -47,7 +47,7 @@ class ledTest(unittest.TestCase):
 
 	def feedback_cb(self,feedback):
 		with open("/dev/rtbuzzer0","r") as f:
-			data = f.readline(()
+			data = f.readline()
 			self.device_values.append(int(data.rstrip()))
 
 if __name__ == '__main__':
