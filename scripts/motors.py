@@ -13,9 +13,9 @@ class Motor():
         rospy.on_shutdown(self.set_power)#when script stop,call option method.
         self.sub_raw = rospy.Subscriber('motor_raw', MotorFreqs, self.callback_raw_freq)
         self.sub_cmd_vel = rospy.Subscriber('cmd_vel', Twist, self.callback_cmd_vel)
-	    self.srv_on = rospy.Service('motor_on',Trigger,self.callback_on)
-	    self.srv_off = rospy.Service('motor_off',Trigger,self.callback_off)
-	    self.srv_tm = rospy.Service('timed_motion',TimedMotion,self.callback_tm)
+	self.srv_on = rospy.Service('motor_on',Trigger,self.callback_on)
+	self.srv_off = rospy.Service('motor_off',Trigger,self.callback_off)
+	self.srv_tm = rospy.Service('timed_motion',TimedMotion,self.callback_tm)
 
         self.last_time = rospy.Time.now()
         self.using_cmd_vel = False
