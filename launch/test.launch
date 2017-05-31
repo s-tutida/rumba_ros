@@ -1,4 +1,4 @@
 <launch>
-	<node pkg="rumba_ros" name="music" type="led.py" required="true" /> 
-	<test test-name="travis action" pkg = "rumba_ros" type ="test_led.py" /> 
+	<node pkg="rumba_ros" name="led_node" type="led.py" required="true" /> 
+	<test test-name="implement_action" pkg = "rumba_ros" type ="test_led.py" /> 
 </launch>
