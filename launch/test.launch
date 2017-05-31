@@ -1,4 +1,4 @@
 <launch>
-	<node pkg="rumba_ros" name="motors" type="motors2.py" required="true" /> 
-	<test test-name="test_motors" pkg = "rumba_ros" type ="travis_test_motors2.py" /> 
+	<node pkg="rumba_ros" name="motors" type="motors.py" required="true" /> 
+	<test test-name="test_motors" pkg = "rumba_ros" type ="travis_test_motors.py" /> 
 </launch>
