@@ -13,7 +13,7 @@ class Motor():
         self.sub_raw = rospy.Subscriber('motor_raw', MotorFreqs, self.callback_raw_freq)
         self.sub_cmd_vel = rospy.Subscriber('cmd_vel', Twist, self.callback_cmd_vel)
 	self.srv_on = rospy.Service('motor_on',Trigger,self.callback_on)
-	self.srv_off = rospy.Service('motor_off',Trigger,callback_off)
+	self.srv_off = rospy.Service('motor_off',Trigger,self.callback_off)
 
 
         self.last_time = rospy.Time.now()
